@@ -1,0 +1,162 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="field is-horizontal" >
+    <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+            <input class="input" id="first-name" type="text" placeholder="name" formControlName="firstName">
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Surname</label>
+        <div class="control">
+            <input class="input" id="last-name" type="text" placeholder="Surname" formControlName="lastName">
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">County</label>
+        <div class="control">
+          <div class="select">
+            <select  formControlName="county">
+              <option value="" disabled selected hidden>Please Choose...</option>
+              <option class=has-text-weight-bold>Leinster</option>
+              <option>Dublin</option>
+              <option>Laois</option>
+              <option>Kilkenny</option>
+              <option>Louth</option>
+              <option>Longford</option>
+              <option>Wicklow</option>
+              <option>Carlow</option>
+              <option>Kildare</option>
+              <option>Meath</option>
+              <option>Offaly</option>
+              <option>Westmeath</option>
+              <option>Wexford</option>
+              <option class=has-text-weight-bold>Connaught</option>
+              <option>Leitrim</option>
+              <option>Galway</option>
+              <option>Mayo</option>
+              <option>Roscommon</option>
+              <option>Sligo</option>
+              <option class=has-text-weight-bold>Ulster</option>
+              <option>Antrim</option>
+              <option>Armagh</option>
+              <option>Donegal</option>
+              <option>Tyrone</option>
+              <option>Fermanagh</option>
+              <option>Cavan</option>
+              <option>Monaghan</option>
+              <option>Down</option>
+              <option>Derry</option>
+              <option class=has-text-weight-bold>Munster</option>
+              <option>Clare</option>
+              <option>Limerick</option>
+              <option>Tipperary</option>
+              <option>Cork</option>
+              <option>Kerry</option>
+              <option>Waterford</option>
+            </select>
+          </div>
+        </div>
+      </div>
+<button type="submit" >Submit</button>
+  </form>
+  <!-- <div class="container">
+    <div class="field is-horizontal">
+  <div class="field">
+      <label class="label">Ainm</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Text input">
+      </div>
+    </div>
+    
+    <div class="field">
+      <label class="label">Occupation</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Text input">
+      </div>
+  </div>
+  <div class="field">
+    <label class="label">Patron</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Text input">
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Active from</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Text input">
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Active until</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Text input">
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Manuscripts</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Text input">
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Topic</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Text input">
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">County</label>
+    <div class="control">
+      <div class="select">
+        <select>
+          <option value="" disabled selected hidden>Please Choose...</option>
+          <option class=has-text-weight-bold>Leinster</option>
+          <option>Dublin</option>
+          <option>Laois</option>
+          <option>Kilkenny</option>
+          <option>Louth</option>
+          <option>Longford</option>
+          <option>Wicklow</option>
+          <option>Carlow</option>
+          <option>Kildare</option>
+          <option>Meath</option>
+          <option>Offaly</option>
+          <option>Westmeath</option>
+          <option>Wexford</option>
+          <option class=has-text-weight-bold>Connaught</option>
+          <option>Leitrim</option>
+          <option>Galway</option>
+          <option>Mayo</option>
+          <option>Roscommon</option>
+          <option>Sligo</option>
+          <option class=has-text-weight-bold>Ulster</option>
+          <option>Antrim</option>
+          <option>Armagh</option>
+          <option>Donegal</option>
+          <option>Tyrone</option>
+          <option>Fermanagh</option>
+          <option>Cavan</option>
+          <option>Monaghan</option>
+          <option>Down</option>
+          <option>Derry</option>
+          <option class=has-text-weight-bold>Munster</option>
+          <option>Clare</option>
+          <option>Limerick</option>
+          <option>Tipperary</option>
+          <option>Cork</option>
+          <option>Kerry</option>
+          <option>Waterford</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" (click)="formSubmission()">Submit</button>
+    </div>
+    <div class="control">
+      <button class="button is-link is-light">Cancel</button>
+    </div>
+  </div>
+  </div>  -->

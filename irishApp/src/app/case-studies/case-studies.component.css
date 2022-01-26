@@ -1,0 +1,12 @@
+.box{
+    margin: auto;
+    margin-top:10px;
+    width:50%;
+    align:center;
+}
+
+.button1{
+    position:relative;
+    right: 0px;
+    width: 100px;
+}

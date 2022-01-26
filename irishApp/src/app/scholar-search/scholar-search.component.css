@@ -1,0 +1,40 @@
+.container{
+    background-color:white;
+   margin-top:2%;
+}
+
+.container2{
+    text-align:right;
+
+}
+
+.field-is-horizontal{
+    padding-left:5%;
+}
+
+.label{
+    padding-left:5%;
+}
+
+#two{
+    padding-top:2em;
+}
+
+.card{
+    background-color:grey;
+    margin-top:2%;
+    color: white;
+
+}
+.h1{
+    text-align:center;
+    font-size:large;
+    font-weight:bold;
+}
+#btSubmit{
+    align:center;
+}
+
+
+
+
