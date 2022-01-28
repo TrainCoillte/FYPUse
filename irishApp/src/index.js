@@ -1,25 +1,38 @@
-const express = require('express');
-const cors = require('cors');
+var express = require('express');
 const bodyParser = require('body-parser');
-const mysql = require('mysql');
-const events = require('./events');
-
+const app = express();
+var mysql = require('mysql');
+var arrayOfScribes = [];
+app.use(bodyParser.json());
 const connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'atlasnagaeilgema ',
-  password : 'bT){4etV*?c} ',
+  user     : 'atlasnagaeilgema_NathanFYP',
+  password : 'Han2019Nat!',
   database : 'atlasnagaeilgema_atlas'
 });
 
-connection.connect();
 
-const port = process.env.PORT || 8080;
-
-const app = express()
-  .use(cors())
-  .use(bodyParser.json())
-  .use(events(connection));
+const port = process.env.PORT || 3306;
 
 app.listen(port, () => {
   console.log(`Express server listening on port ${port}`);
 });
+
+connection.connect(function(err){
+  if(err) throw err;
+  trial();
+})
+
+export function trial(){
+  connection.query("SELECT * FROM Scribe", function (err,result,fields){
+    if(err) throw err;
+    for(var i =0; i<result.length;i++)
+    {
+      arrayOfScribes[i] = result[i];
+    }
+    console.log(arrayOfScribes[4].Ainm);
+  })
+}
+
+
+
