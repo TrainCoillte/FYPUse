@@ -1,228 +1,183 @@
 <div class="container">
-<form class ="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="field is-horizontal" >
-  <div class="field">
-      <label class="label">Name</label>
+  <form
+    class="form"
+    [formGroup]="profileForm"
+    (ngSubmit)="onSubmit()"
+    class="field is-horizontal"
+  >
+    <div class="field">
+      <label class="label">Ainm</label>
       <div class="control">
-          <input class="input" id="first-name" type="text" placeholder="Name" formControlName="Name">
+        <input
+          class="input"
+          id="first-name"
+          type="text"
+          placeholder="Ainm"
+          formControlName="Ainm"
+        />
       </div>
-  </div>
-  <div class="field">
-    <label class="label">Occupation</label>
-    <div class="control">
-        <input class="input" id="first-name" type="text" placeholder="Occupation" formControlName="Occupation">
     </div>
-</div>
-<div class="field">
-  <label class="label">Patron</label>
-  <div class="control">
-      <input class="input" id="first-name" type="text" placeholder="Patron" formControlName="Patron">
-  </div>
-</div>
-  <div class="field">
-    <label class="label">Manuscripts</label>
-    <div class="control">
-      <input class="input" type="text" placeholder="Manuscripts"formControlName="Manuscripts">
+    <div class="field">
+      <label class="label">DataBreithe</label>
+      <div class="control">
+        <input
+          class="input"
+          id="DataBreithe"
+          type="text"
+          placeholder="DataBreithe"
+          formControlName="DataBreithe"
+        />
+      </div>
     </div>
-  </div>
-  <div class="field">
-    <label class="label">Active From</label>
-    <div class="control">
-      <input class="input" type="text" placeholder="Active From"formControlName="ActiveFrom">
+    <div class="field">
+      <label class="label">DataBais</label>
+      <div class="control">
+        <input
+          class="input"
+          id="DataBais"
+          type="text"
+          placeholder="DataBais"
+          formControlName="DataBais"
+        />
+      </div>
     </div>
-  </div>
-  <div class="field">
-    <label class="label">Active Until</label>
-    <div class="control">
-      <input class="input" type="text" placeholder="Text input"formControlName="ActiveUntil">
+    <div class="field">
+      <label class="label">Patrun</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Patrun"
+          formControlName="Patrun"
+        />
+      </div>
     </div>
-  </div>
-  <div class="field">
-    <label class="label">Topic</label>
-    <div class="control">
-      <input class="input" type="text" placeholder="Topic"formControlName="Topic">
+    <div class="field">
+      <label class="label">Lamhscribhinni</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Lamhscribhinni"
+          formControlName="Lamhscribhinni"
+        />
+      </div>
     </div>
-  </div>
-  <div class="field">
-      <label class="label">County</label>
+    <div class="field">
+      <label class="label">FloruitStart</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="FloruitStart"
+          formControlName="FloruitStart"
+        />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">FloruitEnd</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="FloruitEnd"
+          formControlName="FloruitEnd"
+        />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">SliBheatha</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="SliBheatha"
+          formControlName="SliBheatha"
+        />
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Contae</label>
       <div class="control">
         <div class="select">
-          <select  formControlName="county">
-            <option value="" disabled selected hidden>Please Choose...</option>
-            <option class=has-text-weight-bold>Leinster</option>
-            <option>Dublin</option>
+          <select formControlName="Contae">
+            <option value="" disabled selected hidden>
+              Roghnaigh le do thoil...
+            </option>
+            <option>Athshocraigh</option>
+            <option>Baile Átha Cliath</option>
             <option>Laois</option>
-            <option>Kilkenny</option>
-            <option>Louth</option>
-            <option>Longford</option>
-            <option>Wicklow</option>
-            <option>Carlow</option>
-            <option>Kildare</option>
-            <option>Meath</option>
-            <option>Offaly</option>
-            <option>Westmeath</option>
-            <option>Wexford</option>
-            <option class=has-text-weight-bold>Connaught</option>
-            <option>Leitrim</option>
-            <option>Galway</option>
-            <option>Mayo</option>
-            <option>Roscommon</option>
-            <option>Sligo</option>
-            <option class=has-text-weight-bold>Ulster</option>
-            <option>Antrim</option>
-            <option>Armagh</option>
-            <option>Donegal</option>
-            <option>Tyrone</option>
-            <option>Fermanagh</option>
-            <option>Cavan</option>
-            <option>Monaghan</option>
-            <option>Down</option>
-            <option>Derry</option>
-            <option class=has-text-weight-bold>Munster</option>
-            <option>Clare</option>
-            <option>Limerick</option>
-            <option>Tipperary</option>
-            <option>Cork</option>
-            <option>Kerry</option>
-            <option>Waterford</option>
+            <option>Cill Chainnigh</option>
+            <option>Lú</option>
+            <option>Longfort</option>
+            <option>Cill Mhantáin</option>
+            <option>Ceatharlach</option>
+            <option>Cill Dara</option>
+            <option>Mí</option>
+            <option>Uíbh Fhailí</option>
+            <option>Iarmhí</option>
+            <option>Loch Garman</option>
+            <option>Liatroim</option>
+            <option>Gaillímh</option>
+            <option>Mhaigh Eo</option>
+            <option>Ros Comáin</option>
+            <option>Sligeach</option>
+            <option>Aontroim</option>
+            <option>Ard Mhaca</option>
+            <option>Dún na nGall</option>
+            <option>Tír Eoghain</option>
+            <option>Fear Manach</option>
+            <option>Cabhán</option>
+            <option>Muineachán</option>
+            <option>Dún</option>
+            <option>Doire</option>
+            <!-- <option class=has-text-weight-bold>Munster</option> -->
+            <option>Clár</option>
+            <option>Luimneach</option>
+            <option>Tiobraid Árann</option>
+            <option>Corcaigh</option>
+            <option>Ciarraí</option>
+            <option>Port Láirge</option>
           </select>
         </div>
       </div>
     </div>
-<button type="submit" class ="button is-link" id="btSubmit" >Submit</button>
-</form>
+    <button type="submit" class="button is-link" id="btSubmit">
+      Cuir isteach
+    </button>
+  </form>
 </div>
-
-<!-- <div class="container">
-  <div class="field is-horizontal">
-<div class="field">
-    <label class="label">Ainm</label>
-    <div class="control">
-      <input class="input" type="text" placeholder="Text input">
-    </div>
-  </div>
-  
-  <div class="field">
-    <label class="label">Occupation</label>
-    <div class="control">
-      <input class="input" type="text" placeholder="Text input">
-    </div>
-</div>
-<div class="field">
-  <label class="label">Patron</label>
-  <div class="control">
-    <input class="input" type="text" placeholder="Text input">
-  </div>
-</div>
-<div class="field">
-  <label class="label">Active from</label>
-  <div class="control">
-    <input class="input" type="text" placeholder="Text input">
-  </div>
-</div>
-<div class="field">
-  <label class="label">Active until</label>
-  <div class="control">
-    <input class="input" type="text" placeholder="Text input">
-  </div>
-</div>
-<div class="field">
-  <label class="label">Manuscripts</label>
-  <div class="control">
-    <input class="input" type="text" placeholder="Text input">
-  </div>
-</div>
-<div class="field">
-  <label class="label">Topic</label>
-  <div class="control">
-    <input class="input" type="text" placeholder="Text input">
-  </div>
-</div>
-<div class="field">
-  <label class="label">County</label>
-  <div class="control">
-    <div class="select">
-      <select>
-        <option value="" disabled selected hidden>Please Choose...</option>
-        <option class=has-text-weight-bold>Leinster</option>
-        <option>Dublin</option>
-        <option>Laois</option>
-        <option>Kilkenny</option>
-        <option>Louth</option>
-        <option>Longford</option>
-        <option>Wicklow</option>
-        <option>Carlow</option>
-        <option>Kildare</option>
-        <option>Meath</option>
-        <option>Offaly</option>
-        <option>Westmeath</option>
-        <option>Wexford</option>
-        <option class=has-text-weight-bold>Connaught</option>
-        <option>Leitrim</option>
-        <option>Galway</option>
-        <option>Mayo</option>
-        <option>Roscommon</option>
-        <option>Sligo</option>
-        <option class=has-text-weight-bold>Ulster</option>
-        <option>Antrim</option>
-        <option>Armagh</option>
-        <option>Donegal</option>
-        <option>Tyrone</option>
-        <option>Fermanagh</option>
-        <option>Cavan</option>
-        <option>Monaghan</option>
-        <option>Down</option>
-        <option>Derry</option>
-        <option class=has-text-weight-bold>Munster</option>
-        <option>Clare</option>
-        <option>Limerick</option>
-        <option>Tipperary</option>
-        <option>Cork</option>
-        <option>Kerry</option>
-        <option>Waterford</option>
-      </select>
-    </div>
-  </div>
-</div>
-</div>
-<div class="field is-grouped">
-  <div class="control">
-    <button class="button is-link" (click)="formSubmission()">Submit</button>
-  </div>
-  <div class="control">
-    <button class="button is-link is-light">Cancel</button>
-  </div>
-</div>
-</div> -->
-<!-- *ngFor="let person of person" -->
-<div class ="container"  id ="two">
-  <h1 class=h1>Results</h1>
-  <h2 class ="NoResults" *ngIf="showStringbool==true ">There were no Results to match your query</h2>
-  <div class="card" *ngFor="let person of person" >
+<div class="container" id="two">
+  <h1 class="h1">Torthaí {{ scribe.length }}</h1>
+  <h2 class="NoResults" *ngIf="showStringbool == true">
+    <strong>Ní raibh aon torthaí ann chun do cheist a mheaitseáil</strong>
+  </h2>
+  <div class="card" *ngFor="let scribe of scribe">
     <header class="card-header">
-      <p class="card-header-title">{{person.name}}</p> 
+      <p class="card-header-title">{{ scribe.Ainm }}</p>
       <button class="card-header-icon" aria-label="more options">
-        <span class="icon"> 
-          <i 
-          [ngClass]="bool ==true ? 'fas fa-arrow-up': 'fas fa-arrow-down'" aria-hidden="true" (click)="dropdown()"></i>
+        <span class="icon">
+          <!-- <i 
+          [ngClass]="bool ==true ? 'fas fa-arrow-up': 'fas fa-arrow-down'" aria-hidden="true" (click)="dropdown()"></i> -->
         </span>
       </button>
     </header>
-    <div *ngIf = "bool">
     <div class="card-content">
       <div class="content">
         <ul>
-          <li>{{person.name}}</li>
-          <li>{{person.manuscript}}</li>
-          <li>{{person.age}}</li>
-          <li>{{person.name}}</li>
-          <li>{{person.name}}</li>
-          <li>{{person.name}}</li>
-          <li>{{person.name}}</li>
+          <p><strong>Ainm:</strong> {{ scribe.Ainm }}</p>
+          <p><strong>DataBreithe:</strong> {{ scribe.DataBreithe }}</p>
+          <p><strong>DataBais:</strong> {{ scribe.DataBais }}</p>
+          <p><strong>Patrun:</strong> {{ scribe.Patrun }}</p>
+          <p><strong>Lamhscribhinni:</strong> {{ scribe.Lamhscribhinni }}</p>
+          <p><strong>FloruitStart:</strong> {{ scribe.FloruitStart }}</p>
+          <p><strong>FloruitEnd:</strong> {{ scribe.FloruitEnd }}</p>
+          <p><strong>SliBheatha:</strong> {{ scribe.SliBheatha }}</p>
+          <p><strong>Seoladh:</strong> {{ scribe.Seoladh1 }}</p>
+          <p><strong>FeachFosta:</strong> {{ scribe.FeachFosta }}</p>
         </ul>
       </div>
     </div>
   </div>
-  </div>
-
 </div>
 <app-footer></app-footer>

@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { CaseStudiesComponent } from './case-studies/case-studies.component';
 import { HomeComponent } from './home/home.component';
 import { IrisHomeComponent } from './iris-home/iris-home.component';
-import { IrishMapComponent } from './irish-map/irish-map.component';
 import { ScholarSearchComponent } from './scholar-search/scholar-search.component';
 import { TestMapComponent } from './test-map/test-map.component';
 
