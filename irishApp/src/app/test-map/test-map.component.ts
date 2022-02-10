@@ -24,10 +24,11 @@ L.Marker.prototype.options.icon = iconDefault;
   styleUrls: ["test-map.component.css"],
 })
 export class TestMapComponent implements AfterViewInit {
+  [x: string]: any;
   map: L.Map;
   counties: FeatureCollection;
   json: GeoJsonObject | undefined;
-  LúArray: any[] = [];
+  countyArray: any[] = [];
   bool: boolean = true;
 
   private initMap(): void {
@@ -35,9 +36,8 @@ export class TestMapComponent implements AfterViewInit {
       northEast = L.latLng(55.486, -5.247),
       bounds = L.latLngBounds(southWest, northEast);
     this.map = L.map("map", {
-      center: [53.174146, -7.462381],
+      center: [53.374146, -7.462381],
       zoom: 1,
-      maxBounds: bounds,
     });
     const tiles = L.tileLayer(
       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -49,22 +49,57 @@ export class TestMapComponent implements AfterViewInit {
       }
     );
     tiles.addTo(this.map);
+    this.map.setMaxBounds(bounds);
+    this.map.on("drag", () => {
+      this.map.panInsideBounds(bounds, { animate: false });
+    });
+    const info = new (L.Control.extend({
+      options: { position: "topright" },
+    }))();
+
+    info.onAdd = function (map) {
+      var div = L.DomUtil.create("div", "info");
+      div.innerHTML = "<h4>Scríobhaithe na hÉireann </h4>";
+      return div;
+    };
+
+    info.addTo(this.map);
+    const legend = new (L.Control.extend({
+      options: { position: "bottomright" },
+    }))();
+    legend.onAdd = function (map) {
+      var div = L.DomUtil.create("div", "info legend");
+      var grades = [0, 5, 10, 15, 20];
+      var labels = [];
+      var from, to;
+
+      for (var i = 0; i < grades.length; i++) {
+        from = grades[i];
+        to = grades[i + 1];
+
+        labels.push(
+          '<i style="background:' +
+            getColor(from + 1) +
+            '"></i> ' +
+            from +
+            (to ? "&ndash;" + to : "+")
+        );
+      }
+      div.innerHTML = labels.join("<br>");
+      return div;
+    };
+    legend.addTo(this.map);
     this.http.get("assets/Counties.json").subscribe((json: any) => {
       console.log(json);
       this.json = json;
       L.geoJSON(this.json, {
-        style: (feature) => ({
-          weight: 3,
-          opacity: 1.0,
-          color: "green",
-          fillOpacity: 0.8,
-        }),
         onEachFeature: (feature, layer) => (
           console.log(feature.properties.CONTAE),
           layer.on({
+            add: (e) => this.resetFeature(e),
             mouseover: (e) => this.highlightFeature(e),
             mouseout: (e) => this.resetFeature(e),
-            click: (e) => (this.zoomToFeature(e), this.Click(feature, layer)),
+            click: (e) => (this.zoomToFeature(e,layer,feature)),
           }),
           layer.bindTooltip(feature.properties.CONTAE, {
             permanent: true,
@@ -80,32 +115,81 @@ export class TestMapComponent implements AfterViewInit {
   ngOnInit(): void {
     this.dataService.sendGetRequest().subscribe((data: any) => {
       for (var i = 0; i < data.arrayOfScribes.length; i++) {
-        if(data.arrayOfScribes[i].Seoladh1.includes("Lú") ||data.arrayOfScribes[i].Seoladh2.includes("Lú") ||data.arrayOfScribes[i].Seoladh3.includes("Lú"))
-        {
-          var Name = data.arrayOfScribes[i].Ainm;
-          this.LúArray.push(Name);
+          this.countyArray.push(data.arrayOfScribes[i]);
         }
-      }
     });
   }
   ngAfterViewInit(): void {
     this.initMap();
   }
 
-  Click(e:any, layer: L.Layer) {
-    console.log(e.properties.GAEILGE);
-    if(e.properties.GAEILGE.includes("Lú"))
-    {
-      console.log(this.LúArray)
-      for(var i=0; i<this.LúArray.length;i++){
-        layer.bindPopup(this.LúArray[i])
-      };
+  setLegend() {
+    var div = L.DomUtil.create("div", "info legend");
+    var grades = [0, 5, 10, 15, 20];
+    var labels = [];
+    var from, to;
+
+    for (var i = 0; i < grades.length; i++) {
+      from = grades[i];
+      to = grades[i + 1];
+
+      labels.push(
+        '<i style="background:' +
+          this.getColor(from + 1) +
+          '"></i> ' +
+          from +
+          (to ? "&ndash;" + to : "+")
+      );
     }
-    
+    div.innerHTML = labels.join("<br>");
+    return div;
   }
-  zoomToFeature(e: any) {
+  getColor(d: any) {
+    return d > 20
+      ? "#4B0082"
+      : d > 15
+      ? "#0000FF"
+      : d > 10
+      ? "#7B68EE"
+      : d > 5
+      ? "#00008B"
+      : d > 0
+      ? "#E6E6FA"
+      : "#00BFFF";
+  }
+  click(e: any, layer: L.Layer) {
+    var div = L.DomUtil.create("div", "popup");
+    var labels = [];
+    console.log(e.properties.CONTAE + "gaeile");
+    console.log(this.countyArray)
+      for (var i = 0; i < this.countyArray.length; i++) {
+        if (this.countyArray[i].Seoladh1.includes(e.properties.CONTAE||e.properties.GAEILGE) || 
+        this.countyArray[i].Seoladh2.includes(e.properties.CONTAE||e.properties.GAEILGE)||
+        this.countyArray[i].Seoladh3.includes(e.properties.CONTAE||e.properties.GAEILGE)||
+        this.countyArray[i].Seoladh4.includes(e.properties.CONTAE||e.properties.GAEILGE)||
+        this.countyArray[i].Seoladh5.includes(e.properties.CONTAE||e.properties.GAEILGE)||
+        this.countyArray[i].Seoladh6.includes(e.properties.CONTAE||e.properties.GAEILGE)||
+        this.countyArray[i].Seoladh7.includes(e.properties.CONTAE||e.properties.GAEILGE)||
+        this.countyArray[i].Seoladh8.includes(e.properties.CONTAE||e.properties.GAEILGE)||
+        this.countyArray[i].Seoladh9.includes(e.properties.CONTAE||e.properties.GAEILGE)) {
+          console.log("hi");
+        labels.push(this.countyArray[i].Ainm);
+        }
+      }
+      if(labels.length==0)
+      {
+        labels.push("Níl aon scríobhaithe sa chontae seo");
+      }
+    div.innerHTML = labels.join("<br>");
+    layer.bindPopup(div,{
+      className:'popup',
+    })
+    labels=[];
+  }
+  zoomToFeature(e: any,layer: L.Layer,feature: Feature<Geometry, any>) {
     this.map.fitBounds(e.target.getBounds());
     this.map.setView(e.latlng, 13);
+    this.click(feature, layer);
   }
 
   highlightFeature(e: any) {
@@ -122,13 +206,26 @@ export class TestMapComponent implements AfterViewInit {
 
   resetFeature(e: any) {
     const layer = e.target;
-
+    console.log(e.target.feature.properties.SCRIBES);
     layer.setStyle({
       weight: 3,
       opacity: 1.0,
-      color: "green",
-      fillOpacity: 0.8,
-      fillColor: "green",
+      color: "grey",
+      fillOpacity: 1,
+      fillColor: this.getColor(e.target.feature.properties.SCRIBES),
     });
   }
+}
+function getColor(d: any) {
+  return d > 20
+    ? "#4B0082"
+    : d > 15
+    ? "#0000FF"
+    : d > 10
+    ? "#7B68EE"
+    : d > 5
+    ? "#00008B"
+    : d > 0
+    ? "#E6E6FA"
+    : "#00BFFF";
 }

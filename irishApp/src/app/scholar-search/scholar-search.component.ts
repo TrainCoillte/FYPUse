@@ -38,7 +38,6 @@ export class ScholarSearchComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    console.log("hiiminhere");
     this.dataService.sendGetRequest().subscribe((data: any) => {
       for (var i = 0; i < data.arrayOfScribes.length; i++) {
         this.scribe[i] = data.arrayOfScribes[i];
@@ -52,7 +51,6 @@ export class ScholarSearchComponent implements OnInit {
           this.scribe[i].SliBheatha = "N/A";
         }
         if (this.scribe[i].DataBreithe == "0000-00-00") {
-          console.log("hi");
           this.scribe[i].DataBreithe = "N/A";
         }
         if (this.scribe[i].DataBais == "0000-00-00") {
@@ -64,8 +62,35 @@ export class ScholarSearchComponent implements OnInit {
         if (this.scribe[i].FloruitEnd == "0000-00-00") {
           this.scribe[i].FloruitEnd = "N/A";
         }
+        if (this.scribe[i].Seoladh1 == "") {
+          this.scribe[i].Seoladh1 = "N/A";
+        }
+        if (this.scribe[i].Seoladh2 == "") {
+          this.scribe[i].Seoladh2 = "N/A";
+        }
+        if (this.scribe[i].Seoladh3 == "") {
+          this.scribe[i].Seoladh3 = "N/A";
+        }
+        if (this.scribe[i].Seoladh4 == "") {
+          this.scribe[i].Seoladh4 = "N/A";
+        }
+        if (this.scribe[i].Seoladh5 == "") {
+          this.scribe[i].Seoladh5 = "N/A";
+        }
+        if (this.scribe[i].Seoladh6 == "") {
+          this.scribe[i].Seoladh6 = "N/A";
+        }
+        if (this.scribe[i].Seoladh7 == "") {
+          this.scribe[i].Seoladh7 = "N/A";
+        }
+        if (this.scribe[i].Seoladh8 == "") {
+          this.scribe[i].Seoladh8 = "N/A";
+        }
+        if (this.scribe[i].Seoladh9 == "") {
+          this.scribe[i].Seoladh9 = "N/A";
+        }
       }
-      console.log(this.scribe[1]);
+      console.log(this.scribe[1].FeachFosta);
       this.scribes = this.scribe;
     });
   }
@@ -82,6 +107,7 @@ export class ScholarSearchComponent implements OnInit {
   // }
 
   onSubmit() {
+    console.log(this.profileForm.value);
     this.showStringbool = false;
     if (
       this.profileForm.value.Ainm == "" &&
@@ -100,28 +126,38 @@ export class ScholarSearchComponent implements OnInit {
       for (var i = 0; i < this.scribe.length; i++) {
         if (this.profileForm.value.Ainm != "") {
           if (this.scribe[i].Ainm.includes(this.profileForm.value.Ainm)) {
-            this.show.push(this.scribe[i]);
+            if (!this.show.includes(this.scribe[i])) {
+              this.show.push(this.scribe[i]);
+            }
           }
         }
         if (this.profileForm.value.DataBreithe != "") {
-          if (
-            this.scribe[i].DataBreithe.includes(
-              this.profileForm.value.DataBreithe
-            )
-          ) {
-            this.show.push(this.scribe[i]);
+          if (this.scribe[i].DataBreithe.includes(this.profileForm.value.DataBreithe)) 
+          {
+            if (!this.show.includes(this.scribe[i])) {
+              this.show.push(this.scribe[i]);
+            }
           }
+          
         }
         if (this.profileForm.value.DataBais != "") {
           if (
             this.scribe[i].DataBais.includes(this.profileForm.value.DataBais)
           ) {
-            this.show.push(this.scribe[i]);
+            if (!this.show.includes(this.scribe[i])) {
+              this.show.push(this.scribe[i]);
+            }
           }
         }
+        //check if the form has a value for this entry
         if (this.profileForm.value.Patrun != "") {
+          //check if a scribe has a value to match the value entered
           if (this.scribe[i].Patrun.includes(this.profileForm.value.Patrun)) {
-            this.show.push(this.scribe[i]);
+            //if the stored values doesnt include the value found to match
+              if (!this.show.includes(this.scribe[i])) {
+              //add to the stored array
+                this.show.push(this.scribe[i]);
+              }
           }
         }
         if (this.profileForm.value.Lamhscribhinni != "") {
@@ -131,7 +167,9 @@ export class ScholarSearchComponent implements OnInit {
               this.profileForm.value.Lamhscribhinni
             )
           ) {
-            this.show.push(this.scribe[i]);
+            if (!this.show.includes(this.scribe[i])) {
+              this.show.push(this.scribe[i]);
+            }
           }
         }
         if (this.profileForm.value.FloruitStart != "") {
@@ -140,7 +178,9 @@ export class ScholarSearchComponent implements OnInit {
               this.profileForm.value.FloruitStart
             )
           ) {
-            this.show.push(this.scribe[i]);
+            if (!this.show.includes(this.scribe[i])) {
+              this.show.push(this.scribe[i]);
+            }
           }
         }
         if (this.profileForm.value.FloruitEnd != "") {
@@ -149,7 +189,9 @@ export class ScholarSearchComponent implements OnInit {
               this.profileForm.value.FloruitEnd
             )
           ) {
-            this.show.push(this.scribe[i]);
+            if (!this.show.includes(this.scribe[i])) {
+              this.show.push(this.scribe[i]);
+            }
           }
         }
         if (this.profileForm.value.SliBheatha != "") {
@@ -158,13 +200,27 @@ export class ScholarSearchComponent implements OnInit {
               this.profileForm.value.SliBheatha
             )
           ) {
-            this.show.push(this.scribe[i]);
+            if (!this.show.includes(this.scribe[i])) {
+              this.show.push(this.scribe[i]);
+            }
           }
         }
         // this.profileForm.value.Contae !="" && this.profileForm.value.Contae !="Athshocraigh"
         if (this.profileForm.value.Contae != "") {
-          if (this.scribe[i].Seoladh1.includes(this.profileForm.value.Contae)) {
-            this.show.push(this.scribe[i]);
+          if (
+            this.scribe[i].Seoladh1.includes(this.profileForm.value.Contae) ||
+            this.scribe[i].Seoladh2.includes(this.profileForm.value.Contae) ||
+            this.scribe[i].Seoladh3.includes(this.profileForm.value.Contae) ||
+            this.scribe[i].Seoladh4.includes(this.profileForm.value.Contae) ||
+            this.scribe[i].Seoladh5.includes(this.profileForm.value.Contae) ||
+            this.scribe[i].Seoladh6.includes(this.profileForm.value.Contae) ||
+            this.scribe[i].Seoladh7.includes(this.profileForm.value.Contae) ||
+            this.scribe[i].Seoladh8.includes(this.profileForm.value.Contae) ||
+            this.scribe[i].Seoladh9.includes(this.profileForm.value.Contae)
+          ) {
+            if (!this.show.includes(this.scribe[i])) {
+              this.show.push(this.scribe[i]);
+            }
           }
         }
       }

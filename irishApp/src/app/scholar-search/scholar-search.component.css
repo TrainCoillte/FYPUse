@@ -31,7 +31,7 @@
   font-weight: bold;
 }
 #btSubmit {
-  align: center;
+  align-self: end;
 }
 
 .form {
