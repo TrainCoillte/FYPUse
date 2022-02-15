@@ -22,4 +22,16 @@ describe('CaseStudiesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should check popup opens', () => {
+    component.turnOn1()
+    expect(component.isActive).toEqual(true);
+  });
+  it('should check popup closes', () => {
+    component.turnOn1()
+    expect(component.isActive).toEqual(true);
+    component.closeM()
+    expect(component.isActive).toEqual(false);
+  });
 });
+

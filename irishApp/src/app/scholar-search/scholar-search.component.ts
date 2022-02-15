@@ -108,6 +108,8 @@ export class ScholarSearchComponent implements OnInit {
 
   onSubmit() {
     console.log(this.profileForm.value);
+    console.log(this.scribe);
+    console.log(this.scribes);
     this.showStringbool = false;
     if (
       this.profileForm.value.Ainm == "" &&

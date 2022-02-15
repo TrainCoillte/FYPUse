@@ -43,7 +43,7 @@ export class TestMapComponent implements AfterViewInit {
       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       {
         maxZoom: 10,
-        minZoom: 8,
+        minZoom: 7,
         attribution:
           '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }
@@ -102,7 +102,8 @@ export class TestMapComponent implements AfterViewInit {
             click: (e) => (this.zoomToFeature(e,layer,feature)),
           }),
           layer.bindTooltip(feature.properties.CONTAE, {
-            permanent: true,
+            className:'popup2',
+            // permanent: true,
             direction: "center",
           })
         ),
@@ -160,8 +161,8 @@ export class TestMapComponent implements AfterViewInit {
   click(e: any, layer: L.Layer) {
     var div = L.DomUtil.create("div", "popup");
     var labels = [];
-    console.log(e.properties.CONTAE + "gaeile");
-    console.log(this.countyArray)
+     labels.push(e.properties.CONTAE);
+    // labels.push('<h1 ' + e.properties.CONTAE + '/>');
       for (var i = 0; i < this.countyArray.length; i++) {
         if (this.countyArray[i].Seoladh1.includes(e.properties.CONTAE||e.properties.GAEILGE) || 
         this.countyArray[i].Seoladh2.includes(e.properties.CONTAE||e.properties.GAEILGE)||
@@ -172,7 +173,6 @@ export class TestMapComponent implements AfterViewInit {
         this.countyArray[i].Seoladh7.includes(e.properties.CONTAE||e.properties.GAEILGE)||
         this.countyArray[i].Seoladh8.includes(e.properties.CONTAE||e.properties.GAEILGE)||
         this.countyArray[i].Seoladh9.includes(e.properties.CONTAE||e.properties.GAEILGE)) {
-          console.log("hi");
         labels.push(this.countyArray[i].Ainm);
         }
       }
@@ -181,6 +181,8 @@ export class TestMapComponent implements AfterViewInit {
         labels.push("Níl aon scríobhaithe sa chontae seo");
       }
     div.innerHTML = labels.join("<br>");
+   
+layer.bindTooltip
     layer.bindPopup(div,{
       className:'popup',
     })
@@ -188,7 +190,10 @@ export class TestMapComponent implements AfterViewInit {
   }
   zoomToFeature(e: any,layer: L.Layer,feature: Feature<Geometry, any>) {
     this.map.fitBounds(e.target.getBounds());
+    console.log(e)
     this.map.setView(e.latlng, 13);
+    var myIcon = L.divIcon({className: 'my-div-icon'});
+    L.marker([e.latlng.lat,e.latlng.lng], {icon: myIcon}).addTo(this.map);
     this.click(feature, layer);
   }
 

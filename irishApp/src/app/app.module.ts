@@ -11,7 +11,6 @@ import { CaseStudiesComponent } from './case-studies/case-studies.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SearchFormComponent } from './scholar-search/search-form/search-form.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { SearchFormComponent } from './scholar-search/search-form/search-form.co
     ScholarSearchComponent,
     CaseStudiesComponent,
     HomeComponent,
-    FooterComponent,
-    SearchFormComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,

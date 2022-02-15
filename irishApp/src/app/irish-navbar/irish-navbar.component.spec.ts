@@ -22,4 +22,13 @@ describe('IrishNavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should test the state', () => {
+    component.function()
+    expect(component.state).toEqual(1)
+    component.function2()
+    expect(component.state).toEqual(2)
+    component.function3()
+    expect(component.state).toEqual(3)
+  });
 });
