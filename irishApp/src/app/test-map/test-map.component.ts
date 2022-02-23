@@ -43,11 +43,12 @@ export class TestMapComponent implements AfterViewInit {
       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       {
         maxZoom: 10,
-        minZoom: 7,
+        minZoom: 8,
         attribution:
           '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }
     );
+    this.map.fitBounds(bounds);
     tiles.addTo(this.map);
     this.map.setMaxBounds(bounds);
     this.map.on("drag", () => {
@@ -162,6 +163,7 @@ export class TestMapComponent implements AfterViewInit {
     var div = L.DomUtil.create("div", "popup");
     var labels = [];
      labels.push(e.properties.CONTAE);
+     console.log(this.countyArray);
     // labels.push('<h1 ' + e.properties.CONTAE + '/>');
       for (var i = 0; i < this.countyArray.length; i++) {
         if (this.countyArray[i].Seoladh1.includes(e.properties.CONTAE||e.properties.GAEILGE) || 

@@ -19,13 +19,13 @@
 }
 @media screen and (min-width: 1408px) {
   ::ng-deep .legend {
-    line-height:5em;
+    line-height:8em;
     text-align: left;
     color: #555;
   }
   ::ng-deep .legend i {
-    width:5em;
-    height: 5em;
+    width:8em;
+    height: 8em;
     float: left;
     margin-right: 8px;
     font-size: normal;
@@ -54,11 +54,12 @@
   font-size: medium;
   font-weight: bolder;
   overflow-y:scroll;
-  max-height:8em;
+  max-height:15em;
 
 }
 ::ng-deep .popup2{
-  font-size: medium;
+  border: none;
+  font-size: large;
   font-weight: bolder;
 }
 

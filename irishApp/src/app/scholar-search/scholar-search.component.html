@@ -5,7 +5,13 @@
     (ngSubmit)="onSubmit()"
     class="field is-horizontal"
   >
-    <div class="field">
+    <div class="field ">
+      <div class="icon-text ">
+        <span class="icon has-text-info ">
+          <i class="fas fa-info-circle " title="Cuir isteach ainm anseo " ></i>
+        </span>
+        <span>Faoileáil</span>
+      </div>
       <label class="label">Ainm</label>
       <div class="control">
         <input
@@ -18,30 +24,63 @@
       </div>
     </div>
     <div class="field">
+      <div class="icon-text">
+        <span class="icon has-text-info">
+          <i class="fas fa-info-circle" title="Cuir an bhliain isteach"></i>
+        </span>
+        <span>Faoileáil
+        </span>
+      </div>
       <label class="label">DataBreithe</label>
       <div class="control">
         <input
           class="input"
           id="DataBreithe"
-          type="text"
-          placeholder="DataBreithe"
-          formControlName="DataBreithe"
+          type="number" min="1650" max="1900" step="1"
+          placeholder="ó"
+          formControlName="DataBreitheó"
+        />
+        <input
+          class="input"
+          id="DataBreithe"
+          type="number" min="1650" max="1900" step="1"
+          placeholder="chun"
+          formControlName="DataBreithechun"
         />
       </div>
     </div>
     <div class="field">
+      <div class="icon-text">
+        <span class="icon has-text-info">
+          <i class="fas fa-info-circle" title="Cuir an bhliain isteach"></i>
+        </span>
+        <span>Faoileáil</span>
+      </div>
       <label class="label">DataBais</label>
       <div class="control">
         <input
           class="input"
           id="DataBais"
-          type="text"
-          placeholder="DataBais"
-          formControlName="DataBais"
+          type="number" min="1650" max="1900" step="1"
+          placeholder="ó"
+          formControlName="DataBaisó"
+        />
+        <input
+          class="input"
+          id="DataBais"
+          type="number" min="1650" max="1900" step="1"
+          placeholder="chun"
+          formControlName="DataBaischun"
         />
       </div>
     </div>
     <div class="field">
+      <div class="icon-text">
+        <span class="icon has-text-info">
+          <i class="fas fa-info-circle" title="Cuir isteach ainm anseo " ></i>
+        </span>
+        <span>Faoileáil</span>
+      </div>
       <label class="label">Patrun</label>
       <div class="control">
         <input
@@ -53,6 +92,12 @@
       </div>
     </div>
     <div class="field">
+      <div class="icon-text">
+        <span class="icon has-text-info">
+          <i class="fas fa-info-circle" title="Cuir isteach ainm na lámhscríbhinne " ></i>
+        </span>
+        <span>Faoileáil</span>
+      </div>
       <label class="label">Lamhscribhinni</label>
       <div class="control">
         <input
@@ -64,28 +109,62 @@
       </div>
     </div>
     <div class="field">
+      <div class="icon-text">
+        <span class="icon has-text-info">
+          <i class="fas fa-info-circle" title="Cuir an bhliain isteach "></i>
+        </span>
+        <span>Faoileáil</span>
+      </div>
       <label class="label">FloruitStart</label>
       <div class="control">
         <input
           class="input"
-          type="text"
-          placeholder="FloruitStart"
-          formControlName="FloruitStart"
+          id="FloruitStart"
+          type="number" min="1650" max="1900" step="1"
+          placeholder="ó"
+          formControlName="FloruitStartó"
+        />
+        <input
+          class="input"
+          id="FloruitStart"
+          type="number" min="1650" max="1900" step="1"
+          placeholder="chun"
+          formControlName="FloruitStartchun"
         />
       </div>
     </div>
     <div class="field">
+      <div class="icon-text">
+        <span class="icon has-text-info">
+          <i class="fas fa-info-circle" title="Cuir an bhliain isteach" ></i>
+        </span>
+        <span>Faoileáil</span>
+      </div>
       <label class="label">FloruitEnd</label>
       <div class="control">
         <input
           class="input"
-          type="text"
-          placeholder="FloruitEnd"
-          formControlName="FloruitEnd"
+          id="FloruitEnd"
+          type="number" min="1650" max="1900" step="1"
+          placeholder="ó"
+          formControlName="FloruitEndó"
+        />
+        <input
+          class="input"
+          id="FloruitEnd"
+          type="number" min="1650" max="1900" step="1"
+          placeholder="chun"
+          formControlName="FloruitEndchun"
         />
       </div>
     </div>
     <div class="field">
+      <div class="icon-text">
+        <span class="icon has-text-info">
+          <i class="fas fa-info-circle" title="Iontráil slí bheatha"></i>
+        </span>
+        <span>Faoileáil</span>
+      </div>
       <label class="label">SliBheatha</label>
       <div class="control">
         <input
@@ -97,6 +176,12 @@
       </div>
     </div>
     <div class="field">
+      <div class="icon-text">
+        <span class="icon has-text-info">
+          <i class="fas fa-info-circle" title="Roghnaigh Contae  "></i>
+        </span>
+        <span title="hover test">Faoileáil</span>
+      </div>
       <label class="label">Contae</label>
       <div class="control">
         <div class="select">
@@ -104,7 +189,6 @@
             <option value="" disabled selected hidden>
               Roghnaigh le do thoil...
             </option>
-            <option>Athshocraigh</option>
             <option>Baile Átha Cliath</option>
             <option>Laois</option>
             <option>Cill Chainnigh</option>
@@ -142,9 +226,15 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="button is-link" id="btSubmit">
+    <input type="reset" value="athshocrú" 
+                style="background-color:#B22222; 
+                        color: white" />
+    <input type="submit"  value="Cuir isteach" 
+     style="background-color: #006400; 
+      color: white" />
+    <!-- <button type="submit" class="button is-link" id="btSubmit">
       Cuir isteach
-    </button>
+    </button> -->
   </form>
 </div>
 <div class="container" id="two">

@@ -13,20 +13,17 @@ export class IrishNavbarComponent implements OnInit {
   }
 
   function(){
-    console.log("hi");
     this.state =1;
   }
 
   function2()
   {
-    console.log("hi2");
 
     this.state = 2;
   }
 
   function3()
   {
-    console.log("hi3");
     this.state = 3;
   }
 }
