@@ -41,7 +41,31 @@ describe('ScholarSearchComponent', () => {
     Seoladh8: "N/A",
     Seoladh9: "N/A",
     Seoladh10: "",
-    SliBheatha: "Hucstaeir "};
+    SliBheatha: "Hucstaeir ",
+  }
+  component.scribes[1]={
+    Ainm: "Séamus Ó Gribín ",
+Breise: "",
+DataBais: "N/A",
+DataBreithe: "N/A",
+FeachFosta: "N/A",
+FloruitEnd: "1699-00-00",
+FloruitStart: "1696-00-00",
+ID: 175,
+Lamhscribhinni: "ARÉ 24L17 (127); LNA 33.4.11",
+Patrun: "Patrick Logan ",
+Seoladh1: "Gar don Lorgain, Co. Ard Mhacha",
+Seoladh2: "N/A",
+Seoladh3: "N/A",
+Seoladh4: "N/A",
+Seoladh5: "N/A",
+Seoladh6: "N/A",
+Seoladh7: "N/A",
+Seoladh8: "N/A",
+Seoladh9: "N/A",
+Seoladh10: "",
+SliBheatha: "N/A"
+  };
   });
   
 
@@ -69,58 +93,108 @@ describe('ScholarSearchComponent', () => {
     component.onSubmit();
     expect(component.scribe).toEqual(component.scribes);
   });
-  it('should test that county name changes', () => {
-    component.profileForm.value.Contae='Doire';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Dhoire");
-    component.profileForm.value.Contae='Aontroim';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Aontroma");
-    component.profileForm.value.Contae='An Cabhán';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Chabháin");
-    component.profileForm.value.Contae='An Dún';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Dúin");
-    component.profileForm.value.Contae='Dún na nGall';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Dhún na nGall");
-    component.profileForm.value.Contae='Fear Manach';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Fhear Manach");
-    component.profileForm.value.Contae='Muineachán';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Mhuineacháin");
-    component.profileForm.value.Contae='Tír Eoghain';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Thír Eoghain");
-    component.profileForm.value.Contae='An Iarmhí';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Iarmhí");
-    component.profileForm.value.Contae='An Lú';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Lú");
-    component.profileForm.value.Contae='An Mhí';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Mí");
-    component.profileForm.value.Contae='Cill Dara';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Chill Dara");
-    component.profileForm.value.Contae='Longfort';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Longfoirt");
-    component.profileForm.value.Contae='Liatroim';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Liatroma");
-    component.profileForm.value.Contae='Maigh Eo';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Mhaigh Eo");
-    component.profileForm.value.Contae='Sligeach';
-    component.onSubmit();
-    expect(component.profileForm.value.Contae).toEqual( "Shligigh");
-   });
+  // it('should test that county name changes', () => {
+  //   component.profileForm.value.Contae='Doire';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Dhoire");
+  //   component.profileForm.value.Contae='Aontroim';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Aontroma");
+  //   component.profileForm.value.Contae='An Cabhán';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Chabháin");
+  //   component.profileForm.value.Contae='An Dún';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Dúin");
+  //   component.profileForm.value.Contae='Dún na nGall';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Dhún na nGall");
+  //   component.profileForm.value.Contae='Fear Manach';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Fhear Manach");
+  //   component.profileForm.value.Contae='Muineachán';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Mhuineacháin");
+  //   component.profileForm.value.Contae='Tír Eoghain';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Thír Eoghain");
+  //   component.profileForm.value.Contae='An Iarmhí';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Iarmhí");
+  //   component.profileForm.value.Contae='An Lú';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Lú");
+  //   component.profileForm.value.Contae='An Mhí';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Mí");
+  //   component.profileForm.value.Contae='Cill Dara';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Chill Dara");
+  //   component.profileForm.value.Contae='Longfort';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Longfoirt");
+  //   component.profileForm.value.Contae='Liatroim';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Liatroma");
+  //   component.profileForm.value.Contae='Maigh Eo';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Mhaigh Eo");
+  //   component.profileForm.value.Contae='Sligeach';
+  //   component.onSubmit();
+  //   expect(component.profileForm.value.Contae).toEqual( "Shligigh");
+  //  });
    it('should test that if name is entered, it searches, fills correctly and ignores case', () => {
     component.profileForm.value.Ainm = 'Criostóir';
+    component.onSubmit();
+    expect(component.scribe.length).toEqual(1);
+  });
+  it('should test that if Date of birth from range is entered, it searches, fills correctly and ignores case', () => {
+    component.profileForm.value.DataBreitheó =1650;
+    component.onSubmit();
+    expect(component.scribe.length).toEqual(1);
+  });
+  it('should test that if Date of birth to range is entered, it searches, fills correctly and ignores case', () => {
+    component.profileForm.value.DataBreithechun =1850;
+    component.onSubmit();
+    expect(component.scribe.length).toEqual(1);
+  });
+  it('should test that if Date of death from range is entered, it searches, fills correctly and ignores case', () => {
+    component.profileForm.value.DataBaisó =1850;
+    component.onSubmit();
+    expect(component.scribe.length).toEqual(1);
+  });
+  it('should test that if Date of death to range is entered, it searches, fills correctly and ignores case', () => {
+    component.profileForm.value.DataBaischun =1890;
+    component.onSubmit();
+    expect(component.scribe.length).toEqual(1);
+  });
+  it('should test that if Patrun is entered, it searches, fills correctly and ignores case', () => {
+    component.profileForm.value.Patrun ="Patrick";
+    component.onSubmit();
+    expect(component.scribe.length).toEqual(1);
+  });
+  it('should test that if Manuscripts is entered, it searches, fills correctly and ignores case', () => {
+    component.profileForm.value.Lamhscribhinni = "ARÉ 3C4ii (1019)";
+    component.onSubmit();
+    expect(component.scribe.length).toEqual(1);
+  });
+  it('should test that job start date start is entered, it searches, fills correctly and ignores case', () => {
+    component.profileForm.value.FloruitStartó = 1650;
+    component.onSubmit();
+    expect(component.scribe.length).toEqual(2);
+  });
+  it('should test that job start date end is entered, it searches, fills correctly and ignores case', () => {
+    component.profileForm.value.FloruitStartchun = 1850;
+    component.onSubmit();
+    expect(component.scribe.length).toEqual(2);
+  });
+  it('should test that job end date end is entered, it searches, fills correctly and ignores case', () => {
+    component.profileForm.value.FloruitEndó = 1650;
+    component.onSubmit();
+    expect(component.scribe.length).toEqual(2);
+  });
+  it('should test that job end date end is entered, it searches, fills correctly and ignores case', () => {
+    component.profileForm.value.FloruitEndchun = 1850;
     component.onSubmit();
     expect(component.scribe.length).toEqual(1);
   });
