@@ -9,8 +9,8 @@ justify-content: center;
     right:1%;
     margin-top:1%;
     background-color:white;
-    font-size:1.2rem;
-    height:50%;
+    font-size:1rem;
+    height:70%;
   }
 
   #box2{
@@ -23,9 +23,9 @@ justify-content: center;
     height:auto;
     width:50%;
     left:1%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     background-color:white;
-    height:50%;
+    height:70%;
   }
 
   .footercontent{
@@ -33,105 +33,4 @@ justify-content: center;
       bottom:0%;
       width:100%;
       background-color: #51b9d6;
-  }
-
-  .words{
-    text-transform: uppercase;
-  /* background-image: linear-gradient(
-    -225deg,
-    #231557 0%,
-    #44107a 29%,
-    #ff1361 67%,
-    #fff800 100%
-  ); */
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  
-      font-size:  3rem;
-      text-shadow: 1px 1px 1px  #231557 ,
-        1px 2px 1px  #231557 ,
-        1px 3px 1px  #231557 ,
-        1px 4px 1px #44107a,
-        1px 5px 1px #44107a,
-        1px 6px 1px #44107a,
-        1px 7px 1px #ff1361,
-        1px 8px 1px #ff1361,
-        1px 9px 1px #ff1361,
-        1px 10px 1px #ff1361,
-    1px 18px 6px #fff800,
-    1px 22px 10px #fff800,
-    1px 25px 35px #fff800,
-    1px 30px 60px #fff800;
-  }
-  @keyframes textclip {
-    to {
-      background-position: 200% center;
-    }
-  }
-  .word1{
-    position: relative;
-    margin-top:15%;
-    left:5%;
-  }
-  .word2{
-    position: relative;
-    top:25%;
-    left:20%;
-  }
-  .word3{
-    position: relative;
-    top:25%;
-    left:50%;
-  }
-  .word4{
-    position: relative;
-    top:25%;
-    left:75%;
-  }
-  .word5{
-    position: relative;
-    top:45%;
-    left:5%;
-  }
-  .word6{
-    position: relative;
-    top:45%;
-    left:20%;
-  }
-  .word7{
-    position: relative;
-    top:45%;
-    left:50%;
-  }
-  .word8{
-    position: relative;
-    top:45%;
-    left:75%;
-  }
-  .word9{
-    position: relative;
-    top:70%;
-    left:5%;
-  }
-  .word10{
-    position: relative;
-    top:70%;
-    left:20%;
-  }
-  .word11{
-    position: relative;
-    top:70%;
-    left:50%;
-  }
-  .word12{
-    position: relative;
-    top:70%;
-    left:75%;
   }
