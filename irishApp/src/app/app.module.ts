@@ -5,29 +5,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IrisHomeComponent } from './iris-home/iris-home.component';
 import { IrishNavbarComponent } from './irish-navbar/irish-navbar.component';
-import { TestMapComponent } from './test-map/test-map.component';
+import { MapComponent } from './map/map.component';
 import { ScholarSearchComponent } from './scholar-search/scholar-search.component';
 import { CaseStudiesComponent } from './case-studies/case-studies.component';
-import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     IrisHomeComponent,
     IrishNavbarComponent,
-    TestMapComponent,
+    MapComponent,
     ScholarSearchComponent,
     CaseStudiesComponent,
-    HomeComponent,
     FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,7 +13,4 @@ describe('AppComponent', () => {
       ],
     }).compileComponents();
   });
-  it('should test title', () => {
-   AppComponent
-  });
 });
