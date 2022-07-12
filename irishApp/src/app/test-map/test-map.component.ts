@@ -43,7 +43,7 @@ export class TestMapComponent implements AfterViewInit {
       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       {
         maxZoom: 10,
-        minZoom: 7.5,
+        minZoom: 7,
         attribution:
           '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }

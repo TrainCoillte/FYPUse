@@ -38,10 +38,6 @@
   max-height:10em;
 
 }
-.map-container
-{
-  height:110%;
-}
 @media screen and (min-width: 1600px) {
   ::ng-deep .legend {
     line-height:8em;

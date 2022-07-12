@@ -4,7 +4,6 @@ import { DataService } from "../data.service";
 import { IrisHomeComponent } from './iris-home.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FooterComponent } from '../footer/footer.component';
 describe('IrisHomeComponent', () => {
   let component: IrisHomeComponent;
   let fixture: ComponentFixture<IrisHomeComponent>;
@@ -12,7 +11,8 @@ describe('IrisHomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      declarations: [ IrisHomeComponent,FooterComponent ]
+      declarations: [ IrisHomeComponent ]
+
     })
     .compileComponents();
   });

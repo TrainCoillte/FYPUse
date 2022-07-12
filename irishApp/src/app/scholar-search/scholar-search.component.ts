@@ -21,7 +21,6 @@ export class ScholarSearchComponent implements OnInit {
     Patrun: new FormControl(""),
     //manuscripts
     Lamhscribhinni: new FormControl(""),
-    Topic:new FormControl(""),
     //start and end of active
     FloruitStartó: new FormControl(""),
     FloruitStartchun: new FormControl(""),
@@ -96,15 +95,13 @@ export class ScholarSearchComponent implements OnInit {
         if (this.scribe[i].Seoladh9 == "") {
           this.scribe[i].Seoladh9 = "N/A";
         }
-        if (this.scribe[i].Breise == "") {
-          this.scribe[i].Breise= "N/A";
-        }
       }
       this.scribes = this.scribe;
     });
   }
   onSubmit() {
     this.showStringbool = false;
+    console.log(this.profileForm.value);
     if (
       (this.profileForm.value.Ainm == "" &&
         this.profileForm.value.DataBreitheó == "" &&
@@ -113,7 +110,6 @@ export class ScholarSearchComponent implements OnInit {
         this.profileForm.value.DataBaischun == "" &&
         this.profileForm.value.Patrun == "" &&
         this.profileForm.value.Lamhscribhinni == "" &&
-        this.profileForm.value.Topic == "" &&
         this.profileForm.value.FloruitStartó === "" &&
         this.profileForm.value.FloruitStartchun === "" &&
         this.profileForm.value.FloruitEndchun === "" &&
@@ -127,7 +123,6 @@ export class ScholarSearchComponent implements OnInit {
         this.profileForm.value.DataBaischun == null &&
         this.profileForm.value.Patrun === null &&
         this.profileForm.value.Lamhscribhinni === null &&
-        this.profileForm.value.Topic == null &&
         this.profileForm.value.FloruitStartó === null &&
         this.profileForm.value.FloruitStartchun === null &&
         this.profileForm.value.FloruitEndchun === null &&
@@ -135,86 +130,26 @@ export class ScholarSearchComponent implements OnInit {
         this.profileForm.value.SliBheatha === null &&
         this.profileForm.value.Contae === null)
     ) {
-      this.scribe = this.scribes;
+      console.log("£");
+      this.scribe = this.scribes;console.log(this.scribes);
       this.show = [];
     } else {
+      
       this.scribe = this.scribes;
       this.temp = [];
-      if(this.profileForm.value.Contae != null && this.profileForm.value.Contae != "")
-      {
-        if(this.profileForm.value.Contae =="Aontroim")
-        {
-          this.profileForm.value.Contae = "Aontroma";
-        }
-        else if(this.profileForm.value.Contae =="An Cabhán")
-        {
-          this.profileForm.value.Contae = "Chabháin";
-        }
-        else if(this.profileForm.value.Contae =="An Dún")
-        {
-          this.profileForm.value.Contae = "Dúin";
-        }
-        else if(this.profileForm.value.Contae =="Doire")
-        {
-          this.profileForm.value.Contae = "Dhoire";
-        }
-        else if(this.profileForm.value.Contae =="Dún na nGall")
-        {
-          this.profileForm.value.Contae = "Dhún na nGall";
-        }
-        else if(this.profileForm.value.Contae =="Fear Manach")
-        {
-          this.profileForm.value.Contae = "Fhear Manach";
-        }
-        else if(this.profileForm.value.Contae =="Muineachán")
-        {
-          this.profileForm.value.Contae = "Mhuineacháin";
-        }
-        else if(this.profileForm.value.Contae =="Tír Eoghain")
-        {
-          this.profileForm.value.Contae = "Thír Eoghain";
-        }
-        else if(this.profileForm.value.Contae =="An Iarmhí")
-        {
-          this.profileForm.value.Contae = "Iarmhí";
-        }
-        else if(this.profileForm.value.Contae =="An Lú")
-        {
-          this.profileForm.value.Contae = "Lú";
-        }
-        else if(this.profileForm.value.Contae =="An Mhí")
-        {
-          this.profileForm.value.Contae = "Mí";
-        }
-        else if(this.profileForm.value.Contae =="Cill Dara")
-        {
-          this.profileForm.value.Contae = "Chill Dara";
-        }
-        else if(this.profileForm.value.Contae =="Longfort")
-        {
-          this.profileForm.value.Contae = "Longfoirt";
-        }
-        else if(this.profileForm.value.Contae =="Liatroim")
-        {
-          this.profileForm.value.Contae = "Liatroma";
-        }
-        else if(this.profileForm.value.Contae =="Maigh Eo")
-        {
-          this.profileForm.value.Contae = "Mhaigh Eo";
-        }
-        else if(this.profileForm.value.Contae =="Sligeach")
-        {
-          this.profileForm.value.Contae = "Shligigh";
-        }
-      }
+      console.log(this.scribe);
+      //go in here if the show variable is empty
       while(this.show.length<1)
       {
+        //check form has entry for name
         if(this.profileForm.value.Ainm != "" && this.profileForm.value.Ainm != null)
         {
+          console.log("hi");
           for(var i=0; i <this.scribe.length;i++)
           {
             if (this.scribe[i].Ainm.toLowerCase().includes(this.profileForm.value.Ainm.toLowerCase())) 
             {
+              //if all matches etc push object into show array
               this.show.push(this.scribe[i]);
             }
           }
@@ -222,7 +157,6 @@ export class ScholarSearchComponent implements OnInit {
           {
             break;
           }
-
         }
         //show length has gone up but rest of the loops 
         if(this.profileForm.value.DataBreitheó != "" &&this.profileForm.value.DataBreitheó != null)
@@ -235,6 +169,8 @@ export class ScholarSearchComponent implements OnInit {
             {
               subString = parseInt(this.scribe[i].DataBreithe.substring(0,4));
             }
+            console.log(subString);
+            console.log(this.profileForm.value.DataBreitheó);
             if (subString >=this.profileForm.value.DataBreitheó ) 
               {
               this.show.push(this.scribe[i]);
@@ -244,7 +180,6 @@ export class ScholarSearchComponent implements OnInit {
           {
             break;
           }
-
         }
         if(this.profileForm.value.DataBreithechun != "" &&this.profileForm.value.DataBreithechun != null)
         {
@@ -265,7 +200,6 @@ export class ScholarSearchComponent implements OnInit {
           {
             break;
           }
-  
         }
         if(this.profileForm.value.DataBaisó != "" &&this.profileForm.value.DataBaisó!= null)
         {
@@ -286,7 +220,6 @@ export class ScholarSearchComponent implements OnInit {
           {
             break;
           }
-
         }
         if(this.profileForm.value.DataBaischun != "" &&this.profileForm.value.DataBaischun != null)
         {
@@ -294,7 +227,7 @@ export class ScholarSearchComponent implements OnInit {
           {
           
             var subString = 0;
-            if(this.scribe[i].DataBais!= "N/A")
+            if(this.scribe[i].DataBaischun!= "N/A")
             {
               subString = parseInt(this.scribe[i].DataBais.substring(0,4));
             }
@@ -307,7 +240,6 @@ export class ScholarSearchComponent implements OnInit {
           {
             break;
           }
-
         }
         if(this.profileForm.value.Patrun != "" && this.profileForm.value.Patrun != null)
         {
@@ -315,6 +247,7 @@ export class ScholarSearchComponent implements OnInit {
           {
             if (this.scribe[i].Patrun.toLowerCase().includes(this.profileForm.value.Patrun.toLowerCase())) 
             {
+              console.log(this.scribe[i]);
               this.show.push(this.scribe[i]);
             }
           }
@@ -322,27 +255,12 @@ export class ScholarSearchComponent implements OnInit {
           {
             break;
           }
-
         }
         if(this.profileForm.value.Lamhscribhinni != "" && this.profileForm.value.Lamhscribhinni != null)
         {
           for(var i=0; i <this.scribe.length;i++)
           {
             if (this.scribe[i].Lamhscribhinni.toLowerCase().includes(this.profileForm.value.Lamhscribhinni.toLowerCase())) 
-            {
-              this.show.push(this.scribe[i]);
-            }
-          }
-          if(this.show.length != 0)
-          {
-            break;
-          }
-        }
-        if(this.profileForm.value.Topic != "" && this.profileForm.value.Topic != null)
-        {
-          for(var i=0; i <this.scribe.length;i++)
-          {
-            if (this.scribe[i].Topic.toLowerCase().includes(this.profileForm.value.Topic.toLowerCase())) 
             {
               this.show.push(this.scribe[i]);
             }
@@ -362,7 +280,6 @@ export class ScholarSearchComponent implements OnInit {
             {
               subString = parseInt(this.scribe[i].FloruitStart.substring(0,4));
             }
-
             if (subString >=this.profileForm.value.FloruitStartó) 
               {
               this.show.push(this.scribe[i]);
@@ -372,7 +289,6 @@ export class ScholarSearchComponent implements OnInit {
           {
             break;
           }
-
         }
         if(this.profileForm.value.FloruitStartchun != "" &&this.profileForm.value.FloruitStartchun != null)
         {
@@ -384,7 +300,6 @@ export class ScholarSearchComponent implements OnInit {
             {
               subString = parseInt(this.scribe[i].FloruitStart.substring(0,4));
             }
-
             if (subString <=this.profileForm.value.FloruitStartchun && subString >=1640) 
               {
               this.show.push(this.scribe[i]);
@@ -394,8 +309,6 @@ export class ScholarSearchComponent implements OnInit {
           {
             break;
           }
-        
-
         }
         if(this.profileForm.value.FloruitEndó != "" &&this.profileForm.value.FloruitEndó!= null)
         {
@@ -407,18 +320,15 @@ export class ScholarSearchComponent implements OnInit {
             {
               subString = parseInt(this.scribe[i].FloruitEnd.substring(0,4));
             }
- 
             if (subString >=this.profileForm.value.FloruitEndó) 
               {
               this.show.push(this.scribe[i]);
               }
           }
-          console.log(this.show.length);
           if(this.show.length != 0)
           {
             break;
           }
- 
         }
         if(this.profileForm.value.FloruitEndchun != "" &&this.profileForm.value.FloruitEndchun != null)
         {
@@ -430,7 +340,6 @@ export class ScholarSearchComponent implements OnInit {
             {
               subString = parseInt(this.scribe[i].FloruitEnd.substring(0,4));
             }
- 
             if (subString <=this.profileForm.value.FloruitEndchun && subString >=1640) 
               {
               this.show.push(this.scribe[i]);
@@ -440,10 +349,10 @@ export class ScholarSearchComponent implements OnInit {
           {
             break;
           }
- 
         }
         if(this.profileForm.value.SliBheatha != "" && this.profileForm.value.SliBheatha != null)
         {
+          console.log("hi");
           for(var i=0; i <this.scribe.length;i++)
           {
             if (this.scribe[i].SliBheatha.toLowerCase().includes(this.profileForm.value.SliBheatha.toLowerCase())) 
@@ -456,7 +365,6 @@ export class ScholarSearchComponent implements OnInit {
           {
             break;
           }
-   
         }
         if (this.profileForm.value.Contae != ""&&this.profileForm.value.Contae !=null) 
         {
@@ -472,17 +380,17 @@ export class ScholarSearchComponent implements OnInit {
               this.scribe[i].Seoladh8.includes(this.profileForm.value.Contae) ||
               this.scribe[i].Seoladh9.includes(this.profileForm.value.Contae)) 
             {
-              
+              if (!this.show.includes(this.scribe[i])) 
+              {
                 this.show.push(this.scribe[i]);
+              }
             }
           }
           if(this.show.length != 0)
           {
             break;
           }
-
         }
- 
         break;
       }
 
@@ -490,6 +398,8 @@ export class ScholarSearchComponent implements OnInit {
       {
         if(this.profileForm.value.Ainm != "" && this.profileForm.value.Ainm != null)
         {
+          console.log("hi");
+          console.log(this.show);
           for(var i=0; i <this.show.length;i++)
           {
             if (this.show[i].Ainm.toLowerCase().includes(this.profileForm.value.Ainm.toLowerCase())) 
@@ -498,6 +408,7 @@ export class ScholarSearchComponent implements OnInit {
               this.temp.push(this.show[i]);
             }
           }
+          console.log(this.temp);
           this.show = this.temp;
           this.temp=[];
         }
@@ -588,18 +499,6 @@ export class ScholarSearchComponent implements OnInit {
           for(var i=0; i <this.show.length;i++)
           {
             if (this.show[i].Lamhscribhinni.toLowerCase().includes(this.profileForm.value.Lamhscribhinni.toLowerCase())) 
-            {
-              this.temp.push(this.show[i]);
-            }
-          }
-          this.show = this.temp;
-          this.temp=[];
-        }
-        if(this.profileForm.value.Topic != "" && this.profileForm.value.Topic != null)
-        {
-          for(var i=0; i <this.show.length;i++)
-          {
-            if (this.show[i].Topic.toLowerCase().includes(this.profileForm.value.Topic.toLowerCase())) 
             {
               this.temp.push(this.show[i]);
             }
@@ -720,5 +619,10 @@ export class ScholarSearchComponent implements OnInit {
       this.scribe = this.show;
       this.show = [];
     }
+    }
+
+    showText()
+    {
+      
     }
   }
