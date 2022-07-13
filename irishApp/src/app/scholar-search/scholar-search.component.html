@@ -3,12 +3,13 @@
     class="form"
     [formGroup]="profileForm"
     (ngSubmit)="onSubmit()"
-    class="field is-horizontal"
+    
   >
-    <div class="field ">
-      <div class="icon-text ">
-        <span class="icon has-text-info ">
-          <i class="fas fa-info-circle " title="Cuir isteach ainm anseo " ></i>
+  <div class="field is-horizontal">
+    <div class="field">
+      <div class="icon-text">
+        <span class="icon has-text-info">
+          <i class="fas fa-info-circle" title="Cuir isteach ainm anseo "></i>
         </span>
         <span>Faoileáil</span>
       </div>
@@ -28,22 +29,27 @@
         <span class="icon has-text-info">
           <i class="fas fa-info-circle" title="Cuir an bhliain isteach"></i>
         </span>
-        <span>Faoileáil
-        </span>
+        <span>Faoileáil </span>
       </div>
       <label class="label">DataBreithe</label>
       <div class="control">
         <input
           class="input"
           id="DataBreithe"
-          type="number" min="1650" max="1900" step="1"
+          type="number"
+          min="1650"
+          max="1900"
+          step="1"
           placeholder="ó"
           formControlName="DataBreitheó"
         />
         <input
           class="input"
           id="DataBreithe"
-          type="number" min="1650" max="1900" step="1"
+          type="number"
+          min="1650"
+          max="1900"
+          step="1"
           placeholder="chun"
           formControlName="DataBreithechun"
         />
@@ -61,14 +67,20 @@
         <input
           class="input"
           id="DataBais"
-          type="number" min="1650" max="1900" step="1"
+          type="number"
+          min="1650"
+          max="1900"
+          step="1"
           placeholder="ó"
           formControlName="DataBaisó"
         />
         <input
           class="input"
           id="DataBais"
-          type="number" min="1650" max="1900" step="1"
+          type="number"
+          min="1650"
+          max="1900"
+          step="1"
           placeholder="chun"
           formControlName="DataBaischun"
         />
@@ -77,7 +89,7 @@
     <div class="field">
       <div class="icon-text">
         <span class="icon has-text-info">
-          <i class="fas fa-info-circle" title="Cuir isteach ainm anseo " ></i>
+          <i class="fas fa-info-circle" title="Cuir isteach ainm anseo "></i>
         </span>
         <span>Faoileáil</span>
       </div>
@@ -94,7 +106,10 @@
     <div class="field">
       <div class="icon-text">
         <span class="icon has-text-info">
-          <i class="fas fa-info-circle" title="Cuir isteach ainm na lámhscríbhinne " ></i>
+          <i
+            class="fas fa-info-circle"
+            title="Cuir isteach ainm na lámhscríbhinne "
+          ></i>
         </span>
         <span>Faoileáil</span>
       </div>
@@ -105,6 +120,28 @@
           type="text"
           placeholder="Lamhscribhinni"
           formControlName="Lamhscribhinni"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="field is-horizontal">
+    <div class="field">
+      <div class="icon-text">
+        <span class="icon has-text-info">
+          <i
+            class="fas fa-info-circle"
+            title="Cuir isteach ainm na Topic "
+          ></i>
+        </span>
+        <span>Faoileáil</span>
+      </div>
+      <label class="label">Topic</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Topic"
+          formControlName="Topic"
         />
       </div>
     </div>
@@ -120,23 +157,30 @@
         <input
           class="input"
           id="FloruitStart"
-          type="number" min="1650" max="1900" step="1"
+          type="number"
+          min="1650"
+          max="1900"
+          step="1"
           placeholder="ó"
           formControlName="FloruitStartó"
         />
         <input
           class="input"
           id="FloruitStart"
-          type="number" min="1650" max="1900" step="1"
+          type="number"
+          min="1650"
+          max="1900"
+          step="1"
           placeholder="chun"
           formControlName="FloruitStartchun"
         />
       </div>
     </div>
+  
     <div class="field">
       <div class="icon-text">
         <span class="icon has-text-info">
-          <i class="fas fa-info-circle" title="Cuir an bhliain isteach" ></i>
+          <i class="fas fa-info-circle" title="Cuir an bhliain isteach"></i>
         </span>
         <span>Faoileáil</span>
       </div>
@@ -145,14 +189,20 @@
         <input
           class="input"
           id="FloruitEnd"
-          type="number" min="1650" max="1900" step="1"
+          type="number"
+          min="1650"
+          max="1900"
+          step="1"
           placeholder="ó"
           formControlName="FloruitEndó"
         />
         <input
           class="input"
           id="FloruitEnd"
-          type="number" min="1650" max="1900" step="1"
+          type="number"
+          min="1650"
+          max="1900"
+          step="1"
           placeholder="chun"
           formControlName="FloruitEndchun"
         />
@@ -183,58 +233,81 @@
         <span title="hover test">Faoileáil</span>
       </div>
       <label class="label">Contae</label>
-      <div class="control">
+      <div class="control county">
         <div class="select">
           <select formControlName="Contae">
             <option value="" disabled selected hidden>
               Roghnaigh le do thoil...
             </option>
-            <option>Baile Átha Cliath</option>
-            <option>Laois</option>
-            <option>Cill Chainnigh</option>
-            <option>Lú</option>
-            <option>Longfoirt</option>
-            <option>Cill Mhantáin</option>
-            <option>Ceatharlach</option>
-            <option>Chill Dara</option>
-            <option>Mí</option>
-            <option>Uíbh Fhailí</option>
-            <option>Iarmhí</option>
-            <option>Loch Garman</option>
-            <option>Liatroma</option>
-            <option>Gaillímh</option>
-            <option>Mhaigh Eo</option>
-            <option>Ros Comáin</option>
-            <option>Shligigh</option>
-            <option>Aontroma</option>
-            <option>Ard Mhacha</option>
-            <option>Dhún na nGall</option>
-            <option>Thír Eoghain</option>
-            <option>Fhear Manach</option>
-            <option>Chabháin</option>
-            <option>Mhuineacháin</option>
-            <option>Dúin</option>
-            <option>Dhoire</option>
-            <!-- <option class=has-text-weight-bold>Munster</option> -->
-            <option>Clár</option>
-            <option>Luimneach</option>
-            <option>Tiobraid Árann</option>
-            <option>Corcaigh</option>
-            <option>Ciarraí</option>
-            <option>Port Láirge</option>
+            <hr class="dropdown-divider" />
+            <optgroup label="Cúige Uladh/Ulster"></optgroup>
+            <hr class="dropdown-divider" />
+            <option >Aontroim</option>
+            <option >An Cabhán</option>
+            <option >An Dún</option>
+            <option >Ard Mhacha</option>
+            <option >Doire</option>
+            <option >Dún na nGall</option>
+            <option >Fear Manach</option>
+            <option >Muineachán</option>
+            <option >Tír Eoghain</option>
+            <hr class="dropdown-divider" />
+            <optgroup label="Cúige Laighean/Leinster"></optgroup>
+            <hr class="dropdown-divider" />
+            <option >An Iarmhí</option>
+            <option >An Lú</option>
+
+            <option >An Mhí</option>
+            <option >Baile Átha Cliath</option>
+            <option >Ceatharlach</option>
+            <option >Cill Chainnigh</option>
+
+            <option >Cill Dara</option>
+            <option >Cill Mhantáin</option>
+
+            <option >Laois</option>
+            <option >Loch Garman</option>
+            <option >Longfort</option>
+            <option >Uíbh Fhailí</option>
+            <hr class="dropdown-divider" />
+            <optgroup label="Cúige Chonnacht/ Connaught "></optgroup>
+            <hr class="dropdown-divider" />
+            <option >Gaillimh</option>
+            <option >Liatroim</option>
+
+            <option >Maigh Eo</option>
+            <option >Ros Comáin</option>
+            <option >Sligeach</option>
+            <hr class="dropdown-divider" />
+            <optgroup label="Cúige Mumhan/ Munster"></optgroup>
+            <hr class="dropdown-divider" />
+            <option >An Clár</option>
+            <option >Ciarraí</option>
+            <option >Corcaigh</option>
+            <option >Luimneach</option>
+            <option >Port Láirge</option>
+            <option >Tiobraid Árann</option>
           </select>
         </div>
       </div>
     </div>
-    <input type="reset" value="athshocrú" 
-                style="background-color:#B22222; 
-                        color: white" />
-    <input type="submit"  value="Cuir isteach" 
-     style="background-color: #006400; 
-      color: white" />
+    
+        <input
+      type="reset"
+      value="Athshocraigh"
+      style="background-color: #b22222; color: white"
+    />
+    <input
+      type="submit"
+      value="Cuir isteach"
+      style="background-color: #006400; color: white"
+    />
     <!-- <button type="submit" class="button is-link" id="btSubmit">
       Cuir isteach
     </button> -->
+     
+    </div>
+
   </form>
 </div>
 <div class="container" id="two">
@@ -260,6 +333,7 @@
           <p><strong>DataBais:</strong> {{ scribe.DataBais }}</p>
           <p><strong>Patrun:</strong> {{ scribe.Patrun }}</p>
           <p><strong>Lamhscribhinni:</strong> {{ scribe.Lamhscribhinni }}</p>
+          <p><strong>Topic:</strong> {{scribe.Topic}}</p>
           <p><strong>FloruitStart:</strong> {{ scribe.FloruitStart }}</p>
           <p><strong>FloruitEnd:</strong> {{ scribe.FloruitEnd }}</p>
           <p><strong>SliBheatha:</strong> {{ scribe.SliBheatha }}</p>
@@ -268,6 +342,8 @@
           <p><strong>Seoladh3:</strong> {{ scribe.Seoladh3 }}</p>
           <p><strong>Seoladh4:</strong> {{ scribe.Seoladh4 }}</p>
           <p><strong>FeachFosta:</strong> {{ scribe.FeachFosta }}</p>
+          <p><strong>Breise:</strong> {{ scribe.Breise }}</p>
+
         </ul>
       </div>
     </div>

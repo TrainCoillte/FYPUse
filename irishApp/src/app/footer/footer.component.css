@@ -1,6 +1,7 @@
-.footer{
-    
+footer{
     background-color:grey;
+    height:5%;
+    margin-top: 1%;
     padding:0.5em;
     width:100%;
     text-emphasis-color:white;

@@ -43,7 +43,7 @@ export class MapComponent implements AfterViewInit {
       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       {
         maxZoom: 10,
-        minZoom: 7.5,
+        minZoom: 7,
         attribution:
           '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }
@@ -70,7 +70,7 @@ export class MapComponent implements AfterViewInit {
     }))();
     legend.onAdd = function (map) {
       var div = L.DomUtil.create("div", "info legend");
-      var grades = [0, 5, 10, 15, 20];
+      var grades = [1, 5, 10, 15, 20];
       var labels = [];
       var from, to;
 
@@ -80,7 +80,7 @@ export class MapComponent implements AfterViewInit {
 
         labels.push(
           '<i style="background:' +
-            getColor(from + 1) +
+            getColorLegend(from + 1) +
             '"></i> ' +
             from +
             (to ? "&ndash;" + to : "+")
@@ -144,22 +144,20 @@ export class MapComponent implements AfterViewInit {
     div.innerHTML = labels.join("<br>");
     return div;
   }
-  getColor(d: any) {
-    return d > 20
+  getColor(color: any) {
+    return color > 20
       ? "#4B0082"
-      : d > 15
+      : color > 15
       ? "#0000FF"
-      : d > 10
+      : color > 10
       ? "#7B68EE"
-      : d > 5
+      : color > 5
       ? "#00008B"
-      : d > 0
+      : color > 0
       ? "#E6E6FA"
       : "#00BFFF";
   }
   click(e: any, layer: L.Layer) {
-    console.log(e);
-    console.log(layer);
     var div = L.DomUtil.create("div", "popup");
     var labels = [];
      labels.push(e.properties.CONTAE);
@@ -254,11 +252,9 @@ layer.bindTooltip
     labels=[];
   }
   zoomToFeature(e: any,layer: L.Layer,feature: Feature<Geometry, any>) {
-    console.log(e.target);
-    console.log(e.target.getBounds);
+
     this.map.fitBounds(e.target.getBounds());
-    console.log(e.target);
-    console.log(e.target.getBounds);
+
     this.map.setView(e.latlng, 13);
     var myIcon = L.divIcon({className: 'my-div-icon'});
     L.marker([e.latlng.lat,e.latlng.lng], {icon: myIcon}).addTo(this.map);
@@ -288,16 +284,16 @@ layer.bindTooltip
     });
   }
 }
-function getColor(d: any) {
-  return d > 20
+function getColorLegend(legendColor: any) {
+  return legendColor > 20
     ? "#4B0082"
-    : d > 15
+    : legendColor > 15
     ? "#0000FF"
-    : d > 10
+    : legendColor > 10
     ? "#7B68EE"
-    : d > 5
+    :legendColor> 5
     ? "#00008B"
-    : d > 0
+    : legendColor> 0
     ? "#E6E6FA"
     : "#00BFFF";
 }

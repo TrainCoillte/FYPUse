@@ -2,11 +2,32 @@
     margin: auto;
     margin-top:10px;
     width:50%;
-    align:center;
+    align-items: center;
+    align-content:center;
+    font-size: 1rem;
+    overflow-x: auto;
 }
 
 .button1{
     position:relative;
     right: 0px;
-    width: 100px;
+    width: 15%;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: green;
+    font-weight: bold;
+}
+.modal-card{
+    width:70%;
+
+}
+.footercontent{
+    position:absolute;
+    bottom:0%;
+    width:100%;
+    background-color: #51b9d6;
+}
+.title{
+    align-self: center;
+    font-size: 2rem;
 }

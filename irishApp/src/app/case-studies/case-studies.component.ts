@@ -7,28 +7,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CaseStudiesComponent implements OnInit {
   isActive: boolean
+  isActive1: boolean
   isActive2:boolean
   isActive3:boolean
   isActive4:boolean
-  isActive5:boolean
-  isActive6:boolean
-  isActive7:boolean
-  isActive8:boolean
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  turnOn1(){
-    console.log("Hi");
+ showCase1(){
     this.isActive=true;
-    console.log(this.isActive)
+  }
+  showCase2()
+  {
+    this.isActive1=true;
+  }
+  showCase3()
+  {
+    this.isActive2=true;
+  }
+  showCase4()
+  {
+    this.isActive3=true;
+  }
+  showCase5()
+  {
+    this.isActive4=true;
   }
 
   closeM()
   {
     this.isActive=false;
-    console.log(this.isActive)
+    this.isActive1=false;
+    this.isActive2=false;
+    this.isActive3=false;
+    this.isActive4=false;
   }
 
 }

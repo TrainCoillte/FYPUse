@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
-  private REST_API_SERVER = "http://localhost:3000/scribes";
+  private REST_API_SERVER = "https://atlasnagaeilge.maynoothuniversity.ie/scribes/";
 
   constructor(private httpClient: HttpClient) {}
   public sendGetRequest(){

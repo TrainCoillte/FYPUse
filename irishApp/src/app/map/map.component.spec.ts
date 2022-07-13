@@ -4,6 +4,7 @@ import { MapComponent} from './map.component';
 import { Feature, FeatureCollection, GeoJsonObject, Geometry } from "geojson";
 import { HttpClientModule } from '@angular/common/http';
 import L, { LatLngBounds, layerGroup } from 'leaflet';
+
 describe('MapComponent', () => {
   let component: MapComponent;
   let fixture: ComponentFixture<MapComponent>;
@@ -97,12 +98,15 @@ describe('MapComponent', () => {
     expect(component).toBeTruthy();
   });
   it('should test zoom method', () => {
+
     expect(component).toBeTruthy();
   });
   it('should test highlight', () => {
+
     expect(component).toBeTruthy();
   });
   it('should test reset', () => {
+
     expect(component).toBeTruthy();
   });
 

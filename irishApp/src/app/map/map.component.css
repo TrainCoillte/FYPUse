@@ -86,3 +86,7 @@
 ::ng-deep .leaflet-popup{
   /* overflow-y: hidden!important; */
 }
+.gap
+{
+  height:2em;
+}

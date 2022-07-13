@@ -1,17 +1,16 @@
 .container {
   background-color: white;
   margin-top: 2%;
+  overflow-x: auto;
 }
-
+.field{
+     
+    height: auto;
+}
 .container2 {
   text-align: right;
   max-width: 100%;
 }
-
-.field-is-horizontal {
-  padding-left: 5%;
-}
-
 .label {
   padding-left: 5%;
 }
